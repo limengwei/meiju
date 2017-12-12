@@ -1,0 +1,152 @@
+{{template "header" .}}
+
+{{template "navbar" .}}
+
+<style>
+
+    .card {
+        box-shadow: 2px 2px 2px #aaa;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+
+    .part {
+        margin-top: 10px;
+    }
+
+    .card:hover {
+        box-shadow: 3px 3px 3px #888;
+    }
+
+    .layui-elem-quote {
+        border-left: 5px solid #009688;
+    }
+
+    .newslist {
+        line-height: 35px;
+        padding-left: 7px;
+        border-bottom: 1px dotted #ddd;
+    }
+
+</style>
+
+<!--part1-->
+<div class="layui-container ">
+    <div class="layui-row part layui-col-space10">
+        <div class="layui-col-md7">
+            <div class="layui-carousel" id="bannerView">
+                <div carousel-item class="card">
+                    {{range .bannerList}}
+                    <div style="background-color:#2E2D3C"></div>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-col-md5">
+            <div class="card" style="padding: 10px">
+                <blockquote class="layui-elem-quote">
+                    今日
+                </blockquote>
+                <ul>
+                    {{range .todayList}}
+                    <li class="newslist">hehheheheheh</li>
+                    {{end}}
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+    <!--part2-->
+    <div class="layui-row part layui-col-space10">
+        <div class="layui-col-md7 ">
+            <blockquote class="layui-elem-quote">
+                新剧
+            </blockquote>
+            <div class="layui-row layui-col-space10">
+                {{range .newList}}
+
+                <div class="layui-col-md3">
+                    <div class="card" style="height: 200px">
+
+                    </div>
+                </div>
+
+                {{end}}
+            </div>
+        </div>
+
+        <div class="layui-col-md5">
+            <blockquote class="layui-elem-quote">
+                资讯
+            </blockquote>
+
+            <div class="card" style="padding: 10px;height: 390px">
+                <ul>
+                    {{range .newsList}}
+                    <li class="newslist">hehheheheheh</li>
+                    {{end}}
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!--part3-->
+    <blockquote class="layui-elem-quote" style="margin-top: 10px;">
+        热门
+    </blockquote>
+
+    <div class="layui-row part layui-col-space10 ">
+
+        {{range .hotList}}
+
+        <div class="layui-col-md2">
+            <div class="card" style="height: 200px">
+
+            </div>
+        </div>
+
+        {{end}}
+
+    </div>
+
+
+    <!--part4-->
+    <blockquote class="layui-elem-quote" style="margin-top: 10px;">
+        最近
+    </blockquote>
+
+    <div class="layui-row part layui-col-space10 ">
+
+        {{range .lastList}}
+
+        <div class="layui-col-md2">
+            <div class="card" style="height: 200px">
+
+            </div>
+        </div>
+
+        {{end}}
+
+    </div>
+
+</div>
+
+
+<script>
+    layui.use('carousel', function () {
+        var carousel = layui.carousel;
+        //建造实例
+        carousel.render({
+            elem: '#bannerView'
+            , width: '100%' //设置容器宽度
+            ,height:'370px'
+            , arrow: 'always' //始终显示箭头
+            //,anim: 'updown' //切换动画方式
+        });
+    });
+</script>
+
+{{template "footer" .}}

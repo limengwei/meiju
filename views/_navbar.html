@@ -1,0 +1,70 @@
+{{define "navbar"}}
+
+<style>
+    .titlebar {
+        background-color: #393D49;
+        box-shadow: 2px 2px 2px #aaa;
+    }
+
+    .headview {
+        height: 150px;
+    }
+
+</style>
+<div class="layui-row headview">
+
+</div>
+
+<div class="layui-row titlebar">
+
+    <div class="layui-container">
+        <div class="layui-row">
+            <div class="layui-col-md8">
+                <ul class="layui-nav" lay-filter="">
+                    <li class="layui-nav-item layui-this"><a href="">首页</a></li>
+                    <li class="layui-nav-item "><a href="">产品</a></li>
+                    <li class="layui-nav-item"><a href="">大数据</a></li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">解决方案</a>
+                        <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                            <dd><a href="">移动模块</a></dd>
+                            <dd><a href="">后台模版</a></dd>
+                            <dd><a href="">电商平台</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item"><a href="">社区</a></li>
+                </ul>
+            </div>
+            <div class="layui-col-md4">
+                <form class="layui-form" action="" style="margin-top: 11px">
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <input type="text" name="key" autocomplete="true" placeholder="搜索" class="layui-input">
+                        </div>
+                        <label class="layui-form-label">单行输入框</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+<script>
+    //注意：导航 依赖 element 模块，否则无法进行功能性操作
+    layui.use('element', function () {
+        var element = layui.element;
+
+        //…
+    });
+
+    layui.use('form', function(){
+        var form = layui.form;
+
+        //各种基于事件的操作，下面会有进一步介绍
+    });
+</script>
+{{end}}
