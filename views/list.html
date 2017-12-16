@@ -30,13 +30,13 @@
     }
 
 </style>
-<div class="layui-container">
+<div class="layui-container" style="margin-top: 10px">
 
     <div class="layui-row layui-col-space10">
 
         <div class="layui-col-md8">
             <blockquote class="layui-elem-quote" style="margin-top: 10px;">
-                最近
+                <h2>最近更新</h2>
             </blockquote>
 
             <div class="layui-row part layui-col-space10 ">
@@ -51,24 +51,66 @@
 
                 {{end}}
 
+                <div id="pager"></div>
             </div>
         </div>
-        <div class="layui-col-md4 layui-col-space10">
+        <div class="layui-col-md4 ">
 
-            {{range .randomList}}
+            <blockquote class="layui-elem-quote" style="margin-top: 10px;">
+                <h2>热门下载</h2>
+            </blockquote>
+            <div class="layui-row part layui-col-space10 ">
+                {{range .randomList}}
 
-            <div class="layui-col-md6">
-                <div class="card" style="height: 200px">
+                <div class="layui-col-md6 ">
+                    <div class="card" style="height: 200px">
 
+                    </div>
                 </div>
+                {{end}}
             </div>
 
-            {{end}}
+            <blockquote class="layui-elem-quote" style="margin-top: 20px;">
+                <h2>随便看看</h2>
+            </blockquote>
+
+            <div class="layui-row part layui-col-space10 ">
+                {{range .randomList}}
+                <div class="layui-col-md6">
+                    <div class="card" style="height: 200px">
+
+                    </div>
+                </div>
+                {{end}}
+            </div>
 
         </div>
 
     </div>
 
 </div>
+
+
+<script>
+    layui.use(['laypage'], function () {
+        var laypage = layui.laypage;
+
+        //总页数大于页码总数
+        laypage.render({
+            elem: 'pager'
+            , count: {{.total}} //数据总数
+            ,limit:40//每页条数
+            ,curr:{{.p}}
+            ,jump: function (obj,first) {
+            if(!first){
+                //do something
+                window.location.href="/list?cid={{.cid}}&p="+obj.curr;
+            }
+        }
+        });
+    });
+
+
+</script>
 
 {{template "footer" .}}

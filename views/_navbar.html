@@ -8,10 +8,24 @@
 
     .headview {
         height: 150px;
+        line-height: 180px;
+    }
+    .milky{
+        font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+        display: block;
+        font-size: 80px;
+        color: #393D49;
+        text-shadow: 0 8px 9px #c4b59d, 0px -2px 1px #fff;
+        font-weight: bold;
+        letter-spacing: -4px;
     }
 
 </style>
 <div class="layui-row headview">
+
+    <div class="layui-container milky">
+        Měi Jü
+    </div>
 
 </div>
 
@@ -21,17 +35,19 @@
         <div class="layui-row">
             <div class="layui-col-md8">
                 <ul class="layui-nav" lay-filter="">
-                    <li class="layui-nav-item {{if eq .cid ''}}layui-this{{end}}"><a href="/">首页</a></li>
-                    <li class="layui-nav-item {{if eq .cid '0'}}layui-this{{end}}"><a href="/list/0">美剧下载</a></li>
-                    <li class="layui-nav-item {{if eq .cid '0'}}layui-this{{end}}"><a href="/list/1">动作</a></li>
-                    <li class="layui-nav-item {{if eq .cid '0'}}layui-this{{end}}"><a href="/list/2">科幻</a></li>
-                    <li class="layui-nav-item {{if eq .cid '0'}}layui-this{{end}}"><a href="/list/3">喜剧</a></li>
-                    <li class="layui-nav-item {{if eq .cid '0'}}layui-this{{end}}"><a href="/list/4">谍战</a></li>
-                    <li class="layui-nav-item ">
+                    <li class="layui-nav-item {{if eq .cid 0}}layui-this{{end}}"><a href="/">首页</a></li>
+                    <li class="layui-nav-item {{if eq .cid 1}}layui-this{{end}}"><a href="/list?cid=1">最新</a></li>
+                    <li class="layui-nav-item {{if eq .cid 2}}layui-this{{end}}"><a href="/list?cid=2">动作</a></li>
+                    <li class="layui-nav-item {{if eq .cid 3}}layui-this{{end}}"><a href="/list?cid=3">科幻</a></li>
+                    <li class="layui-nav-item {{if eq .cid 4}}layui-this{{end}}"><a href="/list?cid=4">喜剧</a></li>
+                    <li class="layui-nav-item {{if eq .cid 5}}layui-this{{end}}"><a href="/list?cid=5">谍战</a></li>
+                    <li class="layui-nav-item {{if eq .cid 6}}layui-this{{end}}"><a href="/list?cid=6">惊悚</a></li>
+                    <li class="layui-nav-item {{if eq .cid 7}}layui-this{{end}}"><a href="/list?cid=7">律政医务</a></li>
+                    <li class="layui-nav-item {{if gt .cid 7}}layui-this{{end}}">
                         <a href="javascript:;">更多···</a>
                         <dl class="layui-nav-child"> <!-- 二级菜单 -->
-                            <dd><a href="/list/5">灵异惊悚</a></dd>
-                            <dd><a href="/list/6">律政医务剧情</a></dd>
+                            <dd class="{{if eq .cid 8}}layui-this{{end}}"><a href="/list?cid=8">美剧资讯</a></dd>
+                            <dd class="{{if eq .cid 9}}layui-this{{end}}"><a href="/list?cid=9">关于我们</a></dd>
                         </dl>
                     </li>
                 </ul>
