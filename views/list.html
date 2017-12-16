@@ -1,0 +1,74 @@
+{{template "header" .}}
+
+
+{{template "navbar" .}}
+
+<style>
+
+    .card {
+        box-shadow: 2px 2px 2px #aaa;
+        border-radius: 2px;
+        background-color: #fff;
+    }
+
+    .part {
+        margin-top: 10px;
+    }
+
+    .card:hover {
+        box-shadow: 3px 3px 3px #888;
+    }
+
+    .layui-elem-quote {
+        border-left: 5px solid #009688;
+    }
+
+    .newslist {
+        line-height: 35px;
+        padding-left: 7px;
+        border-bottom: 1px dotted #ddd;
+    }
+
+</style>
+<div class="layui-container">
+
+    <div class="layui-row layui-col-space10">
+
+        <div class="layui-col-md8">
+            <blockquote class="layui-elem-quote" style="margin-top: 10px;">
+                最近
+            </blockquote>
+
+            <div class="layui-row part layui-col-space10 ">
+
+                {{range .list}}
+
+                <div class="layui-col-md3">
+                    <div class="card" style="height: 200px">
+
+                    </div>
+                </div>
+
+                {{end}}
+
+            </div>
+        </div>
+        <div class="layui-col-md4 layui-col-space10">
+
+            {{range .randomList}}
+
+            <div class="layui-col-md6">
+                <div class="card" style="height: 200px">
+
+                </div>
+            </div>
+
+            {{end}}
+
+        </div>
+
+    </div>
+
+</div>
+
+{{template "footer" .}}

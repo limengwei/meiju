@@ -31,6 +31,21 @@ func (c *MainController) Get() {
 	c.Data["todayList"] = todayList
 	c.Data["newsList"] = newsList
 
-	//	c.TplName = "index.html"
-	c.TplName = "upload.html"
+	c.TplName = "index.html"
+}
+
+func (c *MainController) List() {
+	cid := c.Ctx.Input.Param(":cid")
+
+	var list = make([]string, 40)
+	var randomList = make([]string, 6)
+
+	c.Data["cid"] = cid
+	c.Data["list"] = list
+	c.Data["randomList"] = randomList
+	c.TplName = "list.html"
+}
+
+func (c *MainController) News() {
+
 }

@@ -1,0 +1,18 @@
+.bg {
+    background-image:url('http://img.hb.aicdn.com/6bf397b907edd6491caeda6dabc175972e95119f21d77-z2E9bM_fw658');
+
+}
+.bg-blur {
+    background: url('https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3427543801,2571384524&fm=27&gp=0.jpg');
+    height:2300px;
+    float: left;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    -webkit-filter: blur(95px);
+    -moz-filter: blur(95px);
+    -o-filter: blur(95px);
+    -ms-filter: blur(95px);
+    filter: blur(95px);
+}

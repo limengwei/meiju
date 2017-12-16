@@ -1,12 +1,13 @@
 {{template "header" .}}
 
+
 {{template "navbar" .}}
 
 <style>
 
     .card {
         box-shadow: 2px 2px 2px #aaa;
-        border-radius: 5px;
+        border-radius: 2px;
         background-color: #fff;
     }
 
@@ -29,9 +30,9 @@
     }
 
 </style>
+<!--part1 -->
+<div class="layui-container">
 
-<!--part1-->
-<div class="layui-container ">
     <div class="layui-row part layui-col-space10">
         <div class="layui-col-md7">
             <div class="layui-carousel" id="bannerView">
@@ -134,7 +135,6 @@
 
 </div>
 
-
 <script>
     layui.use('carousel', function () {
         var carousel = layui.carousel;
@@ -142,7 +142,7 @@
         carousel.render({
             elem: '#bannerView'
             , width: '100%' //设置容器宽度
-            ,height:'370px'
+            , height: '370px'
             , arrow: 'always' //始终显示箭头
             //,anim: 'updown' //切换动画方式
         });

@@ -21,18 +21,19 @@
         <div class="layui-row">
             <div class="layui-col-md8">
                 <ul class="layui-nav" lay-filter="">
-                    <li class="layui-nav-item layui-this"><a href="">首页</a></li>
-                    <li class="layui-nav-item "><a href="">产品</a></li>
-                    <li class="layui-nav-item"><a href="">大数据</a></li>
-                    <li class="layui-nav-item">
-                        <a href="javascript:;">解决方案</a>
+                    <li class="layui-nav-item {{if eq .cid ''}}layui-this{{end}}"><a href="/">首页</a></li>
+                    <li class="layui-nav-item {{if eq .cid '0'}}layui-this{{end}}"><a href="/list/0">美剧下载</a></li>
+                    <li class="layui-nav-item {{if eq .cid '0'}}layui-this{{end}}"><a href="/list/1">动作</a></li>
+                    <li class="layui-nav-item {{if eq .cid '0'}}layui-this{{end}}"><a href="/list/2">科幻</a></li>
+                    <li class="layui-nav-item {{if eq .cid '0'}}layui-this{{end}}"><a href="/list/3">喜剧</a></li>
+                    <li class="layui-nav-item {{if eq .cid '0'}}layui-this{{end}}"><a href="/list/4">谍战</a></li>
+                    <li class="layui-nav-item ">
+                        <a href="javascript:;">更多···</a>
                         <dl class="layui-nav-child"> <!-- 二级菜单 -->
-                            <dd><a href="">移动模块</a></dd>
-                            <dd><a href="">后台模版</a></dd>
-                            <dd><a href="">电商平台</a></dd>
+                            <dd><a href="/list/5">灵异惊悚</a></dd>
+                            <dd><a href="/list/6">律政医务剧情</a></dd>
                         </dl>
                     </li>
-                    <li class="layui-nav-item"><a href="">社区</a></li>
                 </ul>
             </div>
             <div class="layui-col-md4">
@@ -41,15 +42,11 @@
                         <div class="layui-input-block">
                             <input type="text" name="key" autocomplete="true" placeholder="搜索" class="layui-input">
                         </div>
-                        <label class="layui-form-label">单行输入框</label>
                     </div>
                 </form>
             </div>
         </div>
-
-
     </div>
-
 
 </div>
 
