@@ -14,4 +14,14 @@ func init() {
 	beego.Router("/d/:id", &controllers.MainController{}, "*:Detail")
 
 	beego.Router("/news", &controllers.MainController{}, "*:News")
+
+	////admin
+	ns := beego.NewNamespace("/a",
+		beego.NSRouter("/", &controllers.AdminController{}),
+		beego.NSRouter("/movie", &controllers.MovieController{}),
+		beego.NSRouter("/movie/edit", &controllers.MovieController{}, "*:Add"),
+		beego.NSRouter("/movie/edit/:id", &controllers.MovieController{}, "*:Edit"),
+	)
+
+	beego.AddNamespace(ns)
 }

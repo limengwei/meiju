@@ -1,0 +1,187 @@
+{{template "Aheader" .}}
+
+{{template "Aleftmenu" .}}
+
+<style>
+
+    .layui-input {
+        width: 230px;
+    }
+
+    .layui-form-label {
+        text-align: center;
+    }
+</style>
+
+<!-- 内容主体区域 -->
+<div class="layui-body" style="padding: 20px">
+
+    <form class="layui-form" action="" method="POST">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">影片类型</label>
+                <div class="layui-input-block">
+                    <select name="cid">
+                        <option value=""></option>
+                        <option value="0">科幻魔幻</option>
+                        <option value="1">情景喜剧</option>
+                        <option value="2">罪案谍战</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">集数</label>
+                <div class="layui-input-block">
+                    <input type="number" name="count" class="layui-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">中文名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="zhname" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">英文名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="ename" class="layui-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">主演</label>
+                <div class="layui-input-block">
+                    <input type="text" name="actor" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">导演</label>
+                <div class="layui-input-block">
+                    <input type="text" name="director" placeholder="多个用,分开" class="layui-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">更新星期</label>
+                <div class="layui-input-block">
+                    <input type="number" name="updateweek" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">开播时间</label>
+                <div class="layui-input-block">
+                    <input type="text" id="date" name="playdate" placeholder="yyyy-MM-dd"
+                           class="layui-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">编剧</label>
+                <div class="layui-input-block">
+                    <input type="text" name="writer" placeholder="多个用,分开" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">语言</label>
+                <div class="layui-input-block">
+                    <select name="language">
+                        <option value="英语">英语</option>
+                        <option value="中文">中文</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">内容</label>
+            <div class="layui-input-block">
+                <div id="editor"></div>
+                <input name="content" id="content" value="eq" type="hidden"/>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">海报</label>
+                <div class="layui-input-block">
+                    <input type="file" name="photo" class="layui-input">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">SEO标题</label>
+            <div class="layui-input-block">
+                <input type="text" name="title" style="width: 800px" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">SEO关键字</label>
+            <div class="layui-input-block">
+                <input type="text" name="keywords" placeholder="多个用,分开" style="width: 800px" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">状态</label>
+                <div class="layui-input-block">
+                    <select name="status">
+                        <option value="0">正常显示</option>
+                        <option value="1">存为草稿</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="formMovie">保存影片</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+<script>
+    layui.use(['form', 'laydate'], function () {
+        var form = layui.form;
+        //监听提交
+        form.on('submit(formMovie)', function (data) {
+            data.field.content = editor.txt.html();
+            console.log(data)
+            return false;
+        });
+
+
+        var laydate = layui.laydate;
+
+        laydate.render({
+            elem: '#date' //指定元素
+        });
+    });
+
+
+    var E = window.wangEditor
+    var editor = new E('#editor')
+    editor.customConfig.zIndex = 1
+    editor.create()
+</script>
+
+
+{{template "Afooter" .}}
