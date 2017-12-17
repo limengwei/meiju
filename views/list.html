@@ -1,6 +1,5 @@
 {{template "header" .}}
 
-
 {{template "navbar" .}}
 
 <style>
@@ -47,13 +46,22 @@
 
                 <div class="layui-col-md3">
                     <div class="card" style="height: 260px">
+                        <a href="/d/1">
+                            <div style="width: 100%;height: 200px;overflow:hidden">
+                                <img src="http://img.hb.aicdn.com/b73f28153efbde3d480432b278c1abdced75a50016f89-u8Bjci_fw658"
+                                     style="width: 100%">
+                            </div>
+                        </a>
 
-                        <div style="width: 100%;height: 200px;overflow:hidden">
-                            <img src="http://img.hb.aicdn.com/b73f28153efbde3d480432b278c1abdced75a50016f89-u8Bjci_fw658"
-                                 style="width: 100%">
-                        </div>
-                        <div style="height: 50px;width: 100%;">
+                        <div style="height: 50px;width: 100%;text-align: center ">
 
+                            <label style="line-height: 30px;color: #333">
+                                <a href="/d/1">海豹突击队第一季</a>
+                            </label>
+
+
+                            <br>
+                            <label style="line-height: 20px;color: #888">更新到第9集</label>
                         </div>
 
                     </div>
@@ -61,7 +69,10 @@
 
                 {{end}}
 
-                <div id="pager"></div>
+                <div style="text-align: center">
+                    <div id="pager"></div>
+                </div>
+
             </div>
         </div>
         <div class="layui-col-md4 ">
@@ -100,7 +111,6 @@
 
 </div>
 
-
 <script>
     layui.use(['laypage'], function () {
         var laypage = layui.laypage;
@@ -117,9 +127,9 @@
             }
         }
     });
-    });
-
+   });
 
 </script>
+
 
 {{template "footer" .}}

@@ -1,6 +1,8 @@
 package controllers
 
 import (
+	"fmt"
+
 	"github.com/astaxie/beego"
 )
 
@@ -51,6 +53,19 @@ func (c *MainController) List() {
 	c.Data["total"] = 658
 	c.Data["p"] = pageIndex
 	c.TplName = "list.html"
+}
+
+func (c *MainController) Detail() {
+
+	var id = c.Ctx.Input.Param("id")
+
+	fmt.Println(id)
+
+	var randomList = make([]string, 6)
+	c.Data["randomList"] = randomList
+	c.Data["cid"] = 0
+
+	c.TplName = "detail.html"
 }
 
 func (c *MainController) News() {
