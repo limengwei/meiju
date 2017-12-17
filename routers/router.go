@@ -10,7 +10,8 @@ func init() {
 	beego.Router("/", &controllers.MainController{})
 
 	beego.Router("/list", &controllers.MainController{}, "*:List")
-	beego.Router("/list/:cid", &controllers.MainController{}, "*:List")
+
+	beego.Router("/d/:id", &controllers.MainController{}, "*:Detail")
 
 	beego.Router("/news", &controllers.MainController{}, "*:News")
 }

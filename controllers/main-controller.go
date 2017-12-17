@@ -1,6 +1,8 @@
 package controllers
 
 import (
+	"fmt"
+
 	"github.com/astaxie/beego"
 )
 
@@ -22,7 +24,7 @@ func (c *MainController) Get() {
 
 	var newsList = make([]string, 10)
 
-	c.Data["title"] = "meiju"
+	c.Data["title"] = "měi "
 
 	c.Data["bannerList"] = bannerList
 	c.Data["newList"] = newList
@@ -30,12 +32,17 @@ func (c *MainController) Get() {
 	c.Data["lastList"] = lastList
 	c.Data["todayList"] = todayList
 	c.Data["newsList"] = newsList
+	c.Data["cid"] = 0
 
 	c.TplName = "index.html"
 }
 
 func (c *MainController) List() {
-	cid := c.Ctx.Input.Param(":cid")
+	var cid = 0
+	var pageIndex = 1
+
+	cid, _ = c.GetInt("cid", 0)
+	pageIndex, _ = c.GetInt("p", 1)
 
 	var list = make([]string, 40)
 	var randomList = make([]string, 6)
@@ -43,7 +50,22 @@ func (c *MainController) List() {
 	c.Data["cid"] = cid
 	c.Data["list"] = list
 	c.Data["randomList"] = randomList
+	c.Data["total"] = 658
+	c.Data["p"] = pageIndex
 	c.TplName = "list.html"
+}
+
+func (c *MainController) Detail() {
+
+	var id = c.Ctx.Input.Param("id")
+
+	fmt.Println(id)
+
+	var randomList = make([]string, 6)
+	c.Data["randomList"] = randomList
+	c.Data["cid"] = 0
+
+	c.TplName = "detail.html"
 }
 
 func (c *MainController) News() {

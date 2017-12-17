@@ -16,3 +16,7 @@
     -ms-filter: blur(95px);
     filter: blur(95px);
 }
+
+.layui-elem-quote{
+    background-color: #ffffff;
+}

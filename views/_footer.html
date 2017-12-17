@@ -1,8 +1,24 @@
 {{define "footer"}}
 
-
 <style>
-    .footbar{
+    #elevator {
+        position: fixed;
+        right: 15px;
+        bottom: 120px;
+        z-index: 99992;
+        opacity: 1;
+        display: block;
+        width: 40px;
+        height: 36px;
+        border-radius: 2px;
+        display: none;
+        background: url(/static/img/iconsprite_btbar.png) 8px 6px no-repeat;
+        background-color: rgba(0, 0, 0, .6);
+        cursor: pointer;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+    }
+
+    .footbar {
         background-color: #2F4056;
         margin-top: 20px;
         text-align: center;
@@ -12,11 +28,33 @@
     }
 </style>
 
+<a id="elevator" title="回到顶部"></a>
+
 <div class="layui-row footbar">
     <p>© 2017 Hello World</p>
     <p>本网站一切资料均从网络搜集，如有关视频侵犯了你的权益，请联系邮箱告之，本站将于24小时内删除！</p>
     <p>工信部网站备案号：无ICP备147258369号-0</p>
 </div>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+
+<script>
+    $(window).scroll(function () {
+        var top = $(window).scrollTop();
+        if (top > 500) {
+            $("#elevator").fadeIn(800);
+        } else {
+            $('#elevator').fadeOut(800);
+        }
+    });
+
+    $('#elevator').click(function () {
+        $('body,html').animate({scrollTop: 0}, 500);
+    });
+</script>
+
 
 </body>
 </html>

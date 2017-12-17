@@ -1,0 +1,134 @@
+{{template "header" .}}
+
+{{template "navbar" .}}
+
+
+<style>
+
+    .card {
+        box-shadow: 2px 2px 2px #aaa;
+        border-radius: 2px;
+        background-color: #fff;
+    }
+
+    .part {
+        margin-top: 10px;
+    }
+
+    .card:hover {
+        box-shadow: 3px 3px 3px #888;
+    }
+
+    .layui-elem-quote {
+        border-left: 5px solid #009688;
+    }
+
+    .newslist {
+        line-height: 35px;
+        padding-left: 7px;
+        border-bottom: 1px dotted #ddd;
+    }
+
+    a{
+        color: #009688
+    }
+
+    h4{
+        color: #393D49
+    }
+
+</style>
+
+<div class="layui-container" style="margin-top: 10px">
+
+    <div class="layui-row part layui-col-space10">
+        <div class="layui-col-md8">
+            <div class="card" style="min-height: 100%;padding: 2%;margin-top: 10px;line-height: 30px;color: #2E2D3C">
+
+                <h1>反恐特警队第一季 (S.W.A.T. Season 1)</h1>
+
+                <h4 style="color: #888">
+                    2017-11-05 17:14 / 动作分类 / 编辑：可约可约 /
+                    <a href="#">下载地址</a>
+                </h4>
+
+                <p>
+                    CBS电影改篇剧《反恐特警组 S.W.A.T.》改篇自2003年同名电影（那电影其实又改篇自1975年的同名剧集），《反恐特警组》由Sony Pictures TV与CBS TV
+                    Studios合作制片，执行制片包括Shawn Ryan﹑Neal H. Morit z﹑ 林诣彬﹑Aaron Rahsaan Thomas。
+                </p>
+
+                <p>
+                    《反恐特警组》由Aaron Rahsaan Thomas编剧﹑林诣彬执导，剧集指会是紧张﹑动作十足的程序剧，讲述一位黑人特警组警督Daniel ‘Hondo’
+                    Harrelson，得分开自己对街头的忠诚及对自己同僚的责任感下，管理一支训练有素，但又被遗弃的新部队，而他们将成为洛杉矶对付罪犯的最后防线。
+                    在上季离开了《犯罪心理 Criminal Minds》的Shemar Moore饰演上述角色Daniel ‘Hondo’ Harrelson，而且他亦会成为剧集的制作人之一。Stephanie
+                    Sigman饰演有野心及严谨的Jessica，在反恐特警组总部中赢得高阶位置。
+                </p>
+
+                <p>
+                    Lina Esco饰演Chris，充满胆量的他是个熟练的警官，在受压下仍然十分冷静。她对特警组领导突然离开及权力的转变而感到不满，但Chris不会消极多久，因为任务才是唯一要紧之事。Kenny
+                    Johnson饰演Luca，擅长驾驶及搏斗，这工作就是他的生活，幷且也是他的乐趣来源；跟随命令的Luca不会有质疑，这点对这支高效队伍十分重要。
+                </p>
+
+
+                <img src="https://o7xcp1uwh.qnssl.com/9399F3100CC454C6DD2BC86722F7D795.jpg" style="border:10px solid #393D49;width: 96%"/>
+
+                <h4>语言：英语 类型：<a href="">动作分类</a> </h4>
+                <h4>主演：斯黛芬妮·西格曼 / 谢默·摩尔 / 琳娜·埃斯科 / 肯尼·约翰逊 / 杰伊·哈灵顿 </h4>
+                <h4>导演：林诣彬 </h4>
+                <h4>编剧：Aaron Rahsaan Thomas </h4>
+                <h4>首播日期：2017-11-03  </h4>
+                <h4>英文：S.W.A.T. Season 1  </h4>
+                <h4>反恐特警队第一季共8集 </h4>
+                <h4>在下面链接上点击或右键选择使用迅雷下载即可 </h4>
+                <h4>反恐特警队第一季 每<label style="color: #f55">周五</label>更新并播出</h4>
+
+                <ul>
+                    <li><a href="">反恐特警队第一季.第01集.高清.中文字幕.mp4</a>&thinsp;&thinsp;(11/05)</li>
+                    <li><a href="">反恐特警队第一季.第02集.高清.中文字幕.mp4</a>&thinsp;&thinsp;(11/18)</li>
+                    <li><a href="">反恐特警队第一季.第03集.高清.中文字幕.mp4</a>&thinsp;&thinsp;(11/18)</li>
+                    <li><a href="">反恐特警队第一季.第04集.高清.中文字幕.mp4</a>&thinsp;&thinsp;(11/27)</li>
+                    <li><a href="">反恐特警队第一季.第05集.高清.中文字幕.mp4</a>&thinsp;&thinsp;(12/03)</li>
+                    <li><a href="">反恐特警队第一季.第06集.高清.中文字幕.mp4</a>&thinsp;&thinsp;(12/11)</li>
+                    <li>反恐特警队第一季.第07集.高清.中文字幕.mp4</li>
+                    <li>反恐特警队第一季.第08集.高清.中文字幕.mp4</li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="layui-col-md4 ">
+
+            <blockquote class="layui-elem-quote" style="margin-top: 10px;">
+                <h2>热门下载</h2>
+            </blockquote>
+            <div class="layui-row part layui-col-space10 ">
+                {{range .randomList}}
+
+                <div class="layui-col-md6 ">
+                    <div class="card" style="height: 200px">
+
+                    </div>
+                </div>
+                {{end}}
+            </div>
+
+            <blockquote class="layui-elem-quote" style="margin-top: 20px;">
+                <h2>随便看看</h2>
+            </blockquote>
+
+            <div class="layui-row part layui-col-space10 ">
+                {{range .randomList}}
+                <div class="layui-col-md6">
+                    <div class="card" style="height: 200px">
+
+                    </div>
+                </div>
+                {{end}}
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{{template "footer" .}}
