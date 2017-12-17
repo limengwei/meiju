@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d4ca8d4-4a0b-48e5-9ac9-580ee8f0cc9e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controllers/admin-controller.go" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/admin/_footer.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/admin/_header.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/admin/_leftmenu.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/admin/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/admin/movie-edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routers/router.go" afterPath="$PROJECT_DIR$/routers/router.go" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -43,7 +37,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="movie-edit.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="movie-edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/admin/movie-edit.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
@@ -53,6 +47,16 @@
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#7;n#form#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#8;n#form#0;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -118,13 +122,13 @@
         <option value="$PROJECT_DIR$/views/_navbar.html" />
         <option value="$PROJECT_DIR$/views/_footer.html" />
         <option value="$PROJECT_DIR$/views/list.html" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/controllers/admin-controller.go" />
         <option value="$PROJECT_DIR$/views/admin/_leftmenu.html" />
         <option value="$PROJECT_DIR$/views/admin/index.html" />
         <option value="$PROJECT_DIR$/views/admin/_footer.html" />
         <option value="$PROJECT_DIR$/views/admin/_header.html" />
         <option value="$PROJECT_DIR$/views/admin/movie-edit.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -226,12 +230,12 @@
       <workItem from="1513084648129" duration="13000" />
       <workItem from="1513422768849" duration="8236000" />
       <workItem from="1513435084755" duration="12259000" />
-      <workItem from="1513511934945" duration="11523000" />
+      <workItem from="1513511934945" duration="11694000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49555000" />
+    <option name="totallyTimeSpent" value="49726000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1552" height="840" extended-state="6" />
@@ -473,14 +477,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="5" lean-forward="true" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/admin-controller.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -579,6 +575,14 @@
             <element signature="n#style#0;n#input#0;n#div#0;n#div#7;n#form#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#div#8;n#form#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
