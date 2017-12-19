@@ -9,6 +9,13 @@ type MovieController struct {
 }
 
 func (c *MovieController) Get() {
+	var pageIndex = 1
+	pageIndex, _ = c.GetInt("p", 1)
+
+	var movieList = make([]string, 10)
+	c.Data["movieList"] = movieList
+	c.Data["total"] = 450
+	c.Data["p"] = pageIndex
 	c.TplName = "admin/movie-list.html"
 }
 
