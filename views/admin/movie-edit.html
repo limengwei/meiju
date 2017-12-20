@@ -1,6 +1,13 @@
-{{template "Aheader" .}}
+<html>
+<head>
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <script src="/static/layui/layui.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+</head>
 
-{{template "Aleftmenu" .}}
+
+<body>
 
 <style>
 
@@ -118,10 +125,13 @@
             <div class="layui-inline">
                 <label class="layui-form-label">海报</label>
                 <div class="layui-input-block">
-                    <input type="file" name="photo" class="layui-input">
+                    <button type="button" class="layui-btn layui-btn-danger" id="upPhoto">
+                        <i class="layui-icon"></i>上传海报图片
+                    </button>
                 </div>
-
             </div>
+
+            <input type="hidden" name="photo" id="photo"/>
         </div>
 
         <div class="layui-form-item">
@@ -170,10 +180,14 @@
 
 
         var laydate = layui.laydate;
-
         laydate.render({
             elem: '#date' //指定元素
         });
+
+    });
+
+    $('#upPhoto').click(function () {
+        alert(66)
     });
 
 
@@ -183,5 +197,5 @@
     editor.create()
 </script>
 
-
-{{template "Afooter" .}}
+</body>
+</html>

@@ -1,20 +1,99 @@
-{{template "Aheader" .}}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>MeiJu管理</title>
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <script src="/static/layui/layui.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo"><h2>后台管理</h2></div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
 
-{{template "Aleftmenu" .}}
+        </ul>
+        <ul class="layui-nav layui-layout-right" style="margin-right: 50px">
+            <li class="layui-nav-item">
+                <a href="javascript:;">lmw</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="/a">退出</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
 
-<!-- 内容主体区域 -->
-<div class="layui-body">
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
 
-    <div style="padding: 50px;">内容主体区域</div>
-    <div style="padding: 50px;">内容主体区域</div>
-    <div style="padding: 50px;">内容主体区域</div>
-    <div style="padding: 50px;">内容主体区域</div>
-    <div style="padding: 50px;">内容主体区域</div>
-    <div style="padding: 50px;">内容主体区域</div>
-    <div style="padding: 50px;">内容主体区域</div>
-    <div style="padding: 50px;">内容主体区域</div>
-    <div style="padding: 50px;">内容主体区域</div>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">首页</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/" target="view_window">网站首页</a></dd>
+                        <dd><a href="javascript:;">轮播管理</a></dd>
+                    </dl>
+                </li>
 
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;">影片管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/a/movie/edit">添加影片</a></dd>
+                        <dd><a href="/a/movie">影片列表</a></dd>
+                    </dl>
+                </li>
+
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;">关系管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">添加关系</a></dd>
+                        <dd><a href="javascript:;">关系列表</a></dd>
+                    </dl>
+                </li>
+
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;">资讯管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">添加资讯</a></dd>
+                        <dd><a href="javascript:;">资讯列表</a></dd>
+                    </dl>
+                </li>
+
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;">推荐管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">添加推荐</a></dd>
+                        <dd><a href="javascript:;">推荐列表</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 内容主体区域 -->
+    <div class="layui-body">
+
+        <iframe id="myframe" style="width: 100%;height: 100%;" src="/a/movie/edit">
+        </iframe>
+
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © meiju.com - 底部固定区域
+    </div>
 </div>
 
-{{template "Afooter" .}}
+<script>
+    //JavaScript代码区域
+    layui.use('element', function () {
+        var element = layui.element;
+    });
+</script>
+</body>
+</html>

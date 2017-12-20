@@ -7,6 +7,8 @@ import (
 )
 
 func init() {
+	beego.ErrorController(&controllers.ErrorController{})
+
 	beego.Router("/", &controllers.MainController{})
 
 	beego.Router("/list", &controllers.MainController{}, "*:List")
