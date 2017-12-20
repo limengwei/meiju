@@ -20,6 +20,7 @@ func init() {
 	////admin
 	ns := beego.NewNamespace("/a",
 		beego.NSRouter("/", &controllers.AdminController{}),
+		beego.NSRouter("/login", &controllers.AdminController{}, "*:Login"),
 		beego.NSRouter("/movie", &controllers.MovieController{}),
 		beego.NSRouter("/movie/edit", &controllers.MovieController{}, "*:Add"),
 		beego.NSRouter("/movie/edit/:id", &controllers.MovieController{}, "*:Edit"),
