@@ -1,0 +1,142 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <title>{{.title}}</title>
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <script src="/static/layui/layui.js"></script>
+    <!--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>-->
+    <script src=" http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+
+
+</head>
+<body>
+
+<style>
+    #menu{
+        height: 200px;
+    }
+</style>
+
+<div style="width: 100%" id="header" >
+
+    <div style="width: 100%;background-color: #f55" ; id="menu">
+
+    </div>
+
+    <ul class="layui-tab-title" id="tabtitles" style="background-color: #fff9ec;height: 40px">
+        <li class="layui-this" data-index="0">网站设置</li>
+        <li data-index="1">用户管理</li>
+        <li data-index="2">权限分配</li>
+        <li data-index="3">商品管理</li>
+        <li data-index="4">订单管理</li>
+    </ul>
+</div>
+
+<div class="layui-tab" lay-filter="table">
+
+    <ul class="layui-tab-title" id="tabtitles-real" style="visibility:hidden ;height: 0">
+        <li lay-id="0">网站设置</li>
+        <li lay-id="1">用户管理</li>
+        <li lay-id="2">权限分配</li>
+        <li lay-id="3">商品管理</li>
+        <li lay-id="4">订单管理</li>
+    </ul>
+    <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show" style="line-height: 150px">
+            <h1>内容1</h1>
+            <h1>内容2</h1>
+            <h1>内容3</h1>
+            <h1>内容4</h1>
+            <h1>内容5</h1>
+            <h1>内容6</h1>
+            <h1>内容7</h1>
+            <h1>内容8</h1>
+            <h1>内容</h1>
+            <h1>内容2</h1>
+            <h1>内容2</h1>
+            <h1>内容2</h1>
+        </div>
+        <div class="layui-tab-item" style="line-height: 100px">
+            <h1>内容1</h1>
+            <h1>内容2</h1>
+            <h1>内容3</h1>
+            <h1>内容4</h1>
+            <h1>内容5</h1>
+            <h1>内容6</h1>
+            <h1>内容7</h1>
+            <h1>内容8</h1>
+            <h1>内容</h1>
+            <h1>内容2</h1>
+            <h1>内容2</h1>
+            <h1>内容2</h1>
+        </div>
+        <div class="layui-tab-item">内容3</div>
+        <div class="layui-tab-item">内容4</div>
+        <div class="layui-tab-item">内容5</div>
+    </div>
+</div>
+
+<script src="/static/js/jquery.pin.js"></script>
+<script>
+
+    $("#header").pin();
+
+
+    layui.use('element', function () {
+        var element = layui.element;
+        var $ = layui.jquery;
+
+        $('#tabtitles li').on('click', function () {
+            var index = $(this).attr('data-index');
+            element.tabChange('table', index)
+        });
+    });
+
+    //重要 勿删
+    var pinheight=240;
+    $(window).scroll(function () {
+        var top = $(window).scrollTop();
+        if (top > 0) {
+//            $('#menu').height(100);
+//            $('#header').height(140);
+//            $(".pin-wrapper").height(140);
+            if(pinheight==140){
+                return;
+            }
+            console.log($('.pin-wrapper').height())
+
+            pinheight=140;
+            $('#menu').animate({height:"100px"});
+            $('#header').animate({height:"140px"});
+            $(".pin-wrapper").animate({height:"140px"});
+
+//            var h=260-top
+//            if(h<100){
+//                h=100;
+//            }
+//            $("#menu").height(h);
+        }
+        if (top == 0){
+//            $("#menu").height(200);
+//            $("#header").height(240);
+//            $(".pin-wrapper").height(240);
+
+            if(pinheight==240){
+                return;
+            }
+            pinheight=240;
+            $('#menu').animate({height:"200px"});
+            $('#header').animate({height:"240px"});
+            $(".pin-wrapper").animate({height:"240px"});
+        }
+
+    });
+
+
+</script>
+
+</body>
+</html>

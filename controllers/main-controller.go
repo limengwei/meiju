@@ -70,4 +70,5 @@ func (c *MainController) Detail() {
 
 func (c *MainController) News() {
 
+	c.TplName = "pin.html"
 }
