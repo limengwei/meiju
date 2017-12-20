@@ -1,20 +1,137 @@
-{{template "Aheader" .}}
-
-{{template "Aleftmenu" .}}
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>MeiJu管理</title>
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <script src="/static/layui/layui.js"></script>
+    <script src="//unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+</head>
+<body class="layui-layout-body" style="padding: 20px">
 <!-- 内容主体区域 -->
-<div class="layui-body">
+<form class="layui-form" action="/a/movie" method="get">
 
-    <div style="padding: 50px;">内容主体区域</div>
-    <div style="padding: 50px;">内容主体区域</div>
-    <div style="padding: 50px;">内容主体区域</div>
-    <div style="padding: 50px;">内容主体区域</div>
-    <div style="padding: 50px;">内容主体区域</div>
-    <div style="padding: 50px;">内容主体区域</div>
-    <div style="padding: 50px;">内容主体区域</div>
-    <div style="padding: 50px;">内容主体区域</div>
-    <div style="padding: 50px;">内容主体区域</div>
+    <div class="layui-form-item">
+        <div class="layui-input-inline">
+            <select name="cid">
+                <option value="-1">所有分类</option>
+                <option value="0">动作类</option>
+                <option value="1">科幻类</option>
+                <option value="2">恐怖类</option>
+                <option value="3">喜剧类</option>
+                <option value="4">剧情类</option>
+            </select>
+        </div>
 
-</div>
+        <div class="layui-input-inline">
+            <select name="dayIndex">
+                <option value="-1">选择星期</option>
+                <option value="1">星期一</option>
+                <option value="2">星期二</option>
+                <option value="3">星期三</option>
+                <option value="4">星期四</option>
+                <option value="5">星期五</option>
+                <option value="6">星期六</option>
+                <option value="7">星期日</option>
+            </select>
+        </div>
 
-{{template "Afooter" .}}
+        <div class="layui-input-inline">
+            <select name="status">
+                <option value="-1">所有状态</option>
+                <option value="0">正常状态</option>
+                <option value="1">草稿状态</option>
+            </select>
+        </div>
+
+        <div class="layui-input-inline">
+            <input type="text" name="name" placeholder="影片名" class="layui-input">
+        </div>
+        <div class="layui-input-inline">
+            <button class="layui-btn" lay-submit="" lay-filter="search" id="submit">查询</button>
+        </div>
+    </div>
+
+
+    <table class="layui-table">
+
+        <thead>
+        <tr>
+            <th>影片名</th>
+            <th>星期</th>
+            <th>首播日期</th>
+            <th>类型</th>
+            <th>责编</th>
+            <th>点击</th>
+            <th>已有/共集</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{range .movieList}}
+            <tr>
+                <td>传教士 第二季(Preacher Season 2)</td>
+                <td>7</td>
+                <td>2017-06-25</td>
+                <td>科幻魔幻</td>
+                <td>lmw</td>
+                <td>81</td>
+                <td>3 / 13</td>
+                <td>未完结</td>
+                <td>
+                    <a href="/a/movie/edit" class="layui-btn layui-btn-xs">修改</a>
+                    <a href="/a/movie/" class="layui-btn layui-btn-normal layui-btn-xs">添加下载</a>
+                </td>
+            </tr>
+        {{end}}
+        </tbody>
+    </table>
+
+    <div style="text-align: center">
+        <div id="pager"></div>
+        <input type="hidden" name="p" value="1" id="pageIndex"/>
+    </div>
+
+</form>
+
+<script>
+
+
+    layui.use(['form', 'laypage'], function () {
+        var $ = layui.jquery;
+
+        var form = layui.form;
+
+        form.on('submit(search)', function(data){
+            layer.alert(JSON.stringify(data.field), {
+                title: '最终的提交信息'
+            });
+            $('form').submit();
+
+            return false;
+        });
+
+        var laypage = layui.laypage;
+        laypage.render({
+            elem: 'pager'
+            , count: {{.total}} //数据总数
+            ,limit:10//每页条数
+            , curr:{{.p}}
+            ,jump: function (obj, first) {
+            $('#pageIndex').val(obj.curr)
+
+            if (!first) {
+                //do something
+                $("#submit").click()
+            }
+        }
+    });
+
+    });
+
+</script>
+
+</body>
+</html>
