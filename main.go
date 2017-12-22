@@ -4,6 +4,10 @@ import (
 	_ "meiju/routers"
 
 	"github.com/astaxie/beego"
+
+	_ "meiju/logger"
+
+	_ "meiju/tools"
 )
 
 func main() {

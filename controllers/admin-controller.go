@@ -1,17 +1,54 @@
 package controllers
 
 import (
+	"encoding/base64"
 	"fmt"
 
+	"github.com/astaxie/beego/context"
+
+	"meiju/tools"
+
 	"github.com/astaxie/beego"
+)
+
+var (
+	cookie_secret_key []byte = []byte("f6af32fa256195f33e323448ae3c5940")
+	cookie_name              = "cookieee"
 )
 
 type AdminController struct {
 	beego.Controller
 }
 
-func (c *AdminController) Get() {
+var FilterUser = func(ctx *context.Context) {
+	cookieStr := ctx.GetCookie(cookie_name)
 
+	if cookieStr == "" {
+		ctx.Redirect(302, "/login")
+		return
+	}
+
+	fmt.Println(cookieStr)
+	cookieBytes, err := base64.StdEncoding.DecodeString(cookieStr)
+	if err != nil {
+		fmt.Println(err)
+		ctx.Redirect(302, "/login")
+	}
+	origData, err := tools.AesDecrypt(cookieBytes, cookie_secret_key)
+	if err != nil {
+		ctx.Redirect(302, "/login")
+	}
+
+	str := string(origData)
+	fmt.Println(str)
+
+	if str != "lmw" {
+		ctx.Redirect(302, "/login")
+	}
+
+}
+
+func (c *AdminController) Get() {
 	c.TplName = "admin/index.html"
 }
 
@@ -24,11 +61,20 @@ func (c *AdminController) Login() {
 
 	if c.Ctx.Request.Method == "POST" {
 		uname := c.GetString("uname", "")
-		//		pwd := c.GetString("pwd", "")
-
 		fmt.Println("--uanme--", uname)
+		if uname == "lmw" {
+			result, err := tools.AesEncrypt([]byte(uname), cookie_secret_key)
+			if err != nil {
+				c.Redirect("/login", 302)
+			}
+			cookieStr := base64.StdEncoding.EncodeToString(result)
+			c.Ctx.SetCookie(cookie_name, cookieStr)
+			c.Redirect("/a", 302)
+			return
+		}
 
-		c.Redirect("/a/login", 301)
+		c.Redirect("/login", 302)
+
 	}
 
 }
