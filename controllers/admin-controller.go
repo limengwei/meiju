@@ -14,6 +14,7 @@ import (
 var (
 	cookie_secret_key []byte = []byte("f6af32fa256195f33e323448ae3c5940")
 	cookie_name              = "cookieee"
+	cookie_maxAge            = 3600 * 24 * 7
 )
 
 type AdminController struct {
@@ -68,7 +69,7 @@ func (c *AdminController) Login() {
 				c.Redirect("/login", 302)
 			}
 			cookieStr := base64.StdEncoding.EncodeToString(result)
-			c.Ctx.SetCookie(cookie_name, cookieStr)
+			c.Ctx.SetCookie(cookie_name, cookieStr, cookie_maxAge)
 			c.Redirect("/a", 302)
 			return
 		}
