@@ -37,9 +37,12 @@
         <div class="layui-col-md7">
             <div class="layui-carousel" id="bannerView">
                 <div carousel-item class="card">
-                    {{range .bannerList}}
-                    <div style="background-color:#2E2D3C"></div>
-                    {{end}}
+                    {{range .bannerList}} {{end}}
+                        <img src="/static/banner/01.jpg" style="width: 100%;height: auto"/>
+                        <img src="/static/banner/02.jpg" style="width: 100%;height: auto"/>
+                        <img src="/static/banner/03.jpg" style="width: 100%;height: auto"/>
+                        <img src="/static/banner/04.jpg" style="width: 100%;height: auto"/>
+                        <img src="/static/banner/05.jpg" style="width: 100%;height: auto"/>
                 </div>
             </div>
         </div>
@@ -194,8 +197,9 @@
             elem: '#bannerView'
             , width: '100%' //设置容器宽度
             , height: '370px'
-            , arrow: 'always' //始终显示箭头
-            //,anim: 'updown' //切换动画方式
+            , arrow: 'hover' //始终显示箭头
+            ,anim: 'fade' //切换动画方式
+            ,interval: 4000
         });
     });
 </script>

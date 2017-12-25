@@ -4,9 +4,14 @@ import (
 	"encoding/base64"
 	"fmt"
 
+	"html/template"
+
 	"github.com/astaxie/beego/context"
 
 	"meiju/tools"
+	"os"
+	"runtime"
+	"time"
 
 	"github.com/astaxie/beego"
 )
@@ -18,7 +23,7 @@ var (
 )
 
 type AdminController struct {
-	beego.Controller
+	baseController
 }
 
 var FilterUser = func(ctx *context.Context) {
@@ -52,9 +57,26 @@ var FilterUser = func(ctx *context.Context) {
 func (c *AdminController) Get() {
 	c.TplName = "admin/index.html"
 }
+func (c *AdminController) Home() {
+	c.Data["hostname"], _ = os.Hostname()
+	c.Data["gover"] = runtime.Version()
+	c.Data["os"] = runtime.GOOS
+	c.Data["cpunum"] = runtime.NumCPU()
+	c.Data["arch"] = runtime.GOARCH
+	c.Data["beegover"] = beego.VERSION
+	c.Data["clientip"] = c.getClientIp()
+	c.Data["systemver"] = beego.AppConfig.String("systemver")
+	c.Data["developer"] = beego.AppConfig.String("developer")
+	c.Data["servertime"] = c.FormatTime(time.Now(), "YYYY年MM月DD日 HH:mm:ss")
+	//影片数量
+	//	var movie models.MovieInfo
+	//	count, _ := movie.Query().Count()
+	c.Data["moviecount"] = 9998
+	c.TplName = "admin/home.html"
+}
 
 func (c *AdminController) Login() {
-
+	c.Data["xsrfdata"] = template.HTML(c.XSRFFormHTML())
 	if c.Ctx.Request.Method == "GET" {
 		c.TplName = "admin/login.html"
 		return
@@ -62,7 +84,6 @@ func (c *AdminController) Login() {
 
 	if c.Ctx.Request.Method == "POST" {
 		uname := c.GetString("uname", "")
-		fmt.Println("--uanme--", uname)
 		if uname == "lmw" {
 			result, err := tools.AesEncrypt([]byte(uname), cookie_secret_key)
 			if err != nil {
@@ -78,4 +99,9 @@ func (c *AdminController) Login() {
 
 	}
 
+}
+
+func (c *AdminController) Logout() {
+	c.Ctx.SetCookie(cookie_name, "", 0)
+	c.Ctx.Redirect(302, "/login")
 }

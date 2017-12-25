@@ -11,7 +11,10 @@ import (
 )
 
 func main() {
-	//todo
-	// 过滤器，XSRF配置，登录cookie操作
+	//防XSRF:跨站请求伪造
+	beego.BConfig.WebConfig.EnableXSRF = true
+	beego.BConfig.WebConfig.XSRFKey = "61oETzKXQAGaYdkL5gEmGeJJFuYh7EQnp2XdTP1o"
+	beego.BConfig.WebConfig.XSRFExpire = 3600
+
 	beego.Run()
 }
