@@ -38,11 +38,11 @@
             <div class="layui-carousel" id="bannerView">
                 <div carousel-item class="card">
                     {{range .bannerList}} {{end}}
-                        <img src="/static/banner/01.jpg" style="width: 100%;height: auto"/>
-                        <img src="/static/banner/02.jpg" style="width: 100%;height: auto"/>
-                        <img src="/static/banner/03.jpg" style="width: 100%;height: auto"/>
-                        <img src="/static/banner/04.jpg" style="width: 100%;height: auto"/>
-                        <img src="/static/banner/05.jpg" style="width: 100%;height: auto"/>
+                    <a href="#"><img lay-src="/static/banner/01.jpg" style="width: 100%;height: auto"/></a>
+                    <a href="#"><img lay-src="/static/banner/02.jpg" style="width: 100%;height: auto"/></a>
+                    <a href="#"><img lay-src="/static/banner/03.jpg" style="width: 100%;height: auto"/></a>
+                    <a href="#"><img lay-src="/static/banner/04.jpg" style="width: 100%;height: auto"/></a>
+                    <a href="#"><img lay-src="/static/banner/05.jpg" style="width: 100%;height: auto"/></a>
                 </div>
             </div>
         </div>
@@ -75,7 +75,7 @@
                     <div class="card" style="height: 260px">
                         <a href="/d/1">
                             <div style="width: 100%;height: 200px;overflow:hidden">
-                                <img src="http://meiju.zdm100.com/5F7B2FB7E9870191F855B7AD7550FC06.jpg?imageView2/0/w/200/format/webp/q/75"
+                                <img lay-src="http://meiju.zdm100.com/5F7B2FB7E9870191F855B7AD7550FC06.jpg?imageView2/0/w/200/format/webp/q/75"
                                      style="width: 100%">
                             </div>
                         </a>
@@ -127,7 +127,7 @@
             <div class="card" style="height: 260px">
                 <a href="/d/1">
                     <div style="width: 100%;height: 200px;overflow:hidden">
-                        <img src="http://meiju.zdm100.com/5F7B2FB7E9870191F855B7AD7550FC06.jpg?imageView2/0/w/200/format/webp/q/75"
+                        <img lay-src="http://meiju.zdm100.com/5F7B2FB7E9870191F855B7AD7550FC06.jpg?imageView2/0/w/200/format/webp/q/75"
                              style="width: 100%">
                     </div>
                 </a>
@@ -164,7 +164,7 @@
             <div class="card" style="height: 260px">
                 <a href="/d/1">
                     <div style="width: 100%;height: 200px;overflow:hidden">
-                        <img src="http://meiju.zdm100.com/5F7B2FB7E9870191F855B7AD7550FC06.jpg?imageView2/0/w/200/format/webp/q/75"
+                        <img lay-src="http://meiju.zdm100.com/5F7B2FB7E9870191F855B7AD7550FC06.jpg?imageView2/0/w/200/format/webp/q/75"
                              style="width: 100%">
                     </div>
                 </a>
@@ -198,8 +198,8 @@
             , width: '100%' //设置容器宽度
             , height: '370px'
             , arrow: 'hover' //始终显示箭头
-            ,anim: 'fade' //切换动画方式
-            ,interval: 4000
+            , anim: 'fade' //切换动画方式
+            , interval: 4000
         });
     });
 </script>

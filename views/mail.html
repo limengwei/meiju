@@ -1,0 +1,25 @@
+<style>
+    form *{
+        width: 300px;
+    }
+
+</style>
+
+<!--<form mathod="POST" action="/mail" style="text-align: center">-->
+    <!--<input name="formaddr" placeholder="From:"/>-->
+    <!--<br><br>-->
+    <!--<input name="toaddr" placeholder="To:" value="limengweiwei@gmail.com"/>-->
+    <!--<br><br>-->
+    <!--<input name="title" placeholder="Tiele" value="hello"/>-->
+    <!--<br><br>-->
+    <!--<textarea name="content" placeholder="Content" style="height: 200px">world</textarea>-->
+    <!--<br><br>-->
+    <!--<button type="submit">发送</button>-->
+<!--</form>-->
+
+<form action="/mail" method="post">
+    <input type="submit"/>
+</form>
+
+
+<h1 style="color: #FD482C">{{.msg}}</h1>

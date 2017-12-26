@@ -2,6 +2,7 @@ package routers
 
 import (
 	"meiju/controllers"
+	"meiju/controllers/admin"
 
 	"github.com/astaxie/beego"
 )
@@ -17,17 +18,25 @@ func init() {
 
 	beego.Router("/news", &controllers.MainController{}, "*:News")
 
-	beego.Router("/login", &controllers.AdminController{}, "*:Login")
-	beego.Router("/logout", &controllers.AdminController{}, "*:Logout")
-	beego.InsertFilter("/a/*", beego.BeforeRouter, controllers.FilterUser, true, true)
+	beego.InsertFilter("/a/*", beego.BeforeRouter, admin.FilterUser, true, true)
 
 	////admin
+	beego.Router("/login", &admin.AdminController{}, "*:Login")
+
+	beego.Router("/logout", &admin.AdminController{}, "*:Logout")
+
+	beego.Router("/mail", &admin.MailController{}, "*:Send")
+
 	ns := beego.NewNamespace("/a",
-		beego.NSRouter("/", &controllers.AdminController{}),
-		beego.NSRouter("/home", &controllers.AdminController{}, "*:Home"),
-		beego.NSRouter("/movie", &controllers.MovieController{}),
-		beego.NSRouter("/movie/edit", &controllers.MovieController{}, "*:Add"),
-		beego.NSRouter("/movie/edit/:id", &controllers.MovieController{}, "*:Edit"),
+		beego.NSRouter("/", &admin.AdminController{}),
+		beego.NSRouter("/home", &admin.AdminController{}, "*:Home"),
+		beego.NSRouter("/movie", &admin.MovieController{}),
+		beego.NSRouter("/movie/edit", &admin.MovieController{}, "*:Add"),
+		beego.NSRouter("/movie/edit/:id", &admin.MovieController{}, "*:Edit"),
+
+		beego.NSRouter("/relation", &admin.RelationController{}),
+		beego.NSRouter("/relation/edit", &admin.RelationController{}, "*:Add"),
+		beego.NSRouter("/relation/edit/:id", &admin.RelationController{}, "*:Edit"),
 	)
 
 	beego.AddNamespace(ns)
